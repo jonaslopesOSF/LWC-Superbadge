@@ -40,6 +40,7 @@ export default class BoatMap extends LightningElement {
   // Initialize messageContext for Message Service
   @wire(MessageContext)
   messageContext;
+  
   // Getting record's location to construct map markers using recordId
   // Wire the getRecord method using ('$boatId')
   @wire(getRecord, { recordId: '$boatId', fields: BOAT_FIELDS})
@@ -74,8 +75,8 @@ export default class BoatMap extends LightningElement {
     if (this.subscription || this.recordId) {
       return;
     }
-    this.subscribeMC();
     // Subscribe to the message channel to retrieve the recordID and assign it to boatId.
+    this.subscribeMC();
   }
 
   subscribeMC() {

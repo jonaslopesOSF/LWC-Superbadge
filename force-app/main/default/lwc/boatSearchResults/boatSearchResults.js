@@ -1,9 +1,9 @@
 import { LightningElement, wire, api, track } from "lwc";
-import getBoats from "@salesforce/apex/BoatDataService.getBoats";
-import updateBoatList from "@salesforce/apex/BoatDataService.updateBoatList";
 import { getRecordNotifyChange } from "lightning/uiRecordApi";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 import { refreshApex } from "@salesforce/apex";
+import getBoats from "@salesforce/apex/BoatDataService.getBoats";
+import updateBoatList from "@salesforce/apex/BoatDataService.updateBoatList";
 import BOATMC from "@salesforce/messageChannel/BoatMessageChannel__c";
 import { MessageContext, publish } from "lightning/messageService";
 
@@ -64,6 +64,7 @@ export default class BoatSearchResults extends LightningElement {
     const message = {
       recordId: boatId
     };
+
     publish(this.messageContext, BOATMC, message);
   }
 
