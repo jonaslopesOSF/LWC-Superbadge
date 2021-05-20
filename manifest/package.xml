@@ -18,18 +18,6 @@
         <name>ApexPage</name>
     </types>
     <types>
-        <members>*</members>
-        <name>ApexTestSuite</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexTrigger</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>AuraDefinitionBundle</name>
-    </types>
-    <types>
         <members>boatMap</members>
         <members>boatSearch</members>
         <members>boatSearchForm</members>
@@ -41,10 +29,6 @@
     <types>
         <members>BoatMessageChannel</members>
         <name>LightningMessageChannel</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>StaticResource</name>
     </types>
     <version>49.0</version>
 </Package>
