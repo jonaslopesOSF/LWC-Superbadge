@@ -77,11 +77,9 @@ export default class BoatSearchResults extends LightningElement {
     // notify loading
     this.notifyLoading(true);
     const updatedFields = event.detail.draftValues;
-    console.log('updateFields', updatedFields);
     const notifyChangeIds = updatedFields.map((row) => {
       return { recordId: row.Id };
     });
-    console.log('notifyChangeIds', notifyChangeIds);
 
     // Update the records via Apex
     await updateBoatList({ data: updatedFields })

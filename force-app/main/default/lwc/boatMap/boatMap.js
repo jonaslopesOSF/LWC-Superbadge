@@ -1,26 +1,25 @@
 // import BOATMC from the message channel
 import { LightningElement, api, wire, track } from "lwc";
-import { getRecord } from 'lightning/uiRecordApi';
-import BOATMC from '@salesforce/messageChannel/BoatMessageChannel__c';
+import { getRecord } from "lightning/uiRecordApi";
+import BOATMC from "@salesforce/messageChannel/BoatMessageChannel__c";
 import {
   APPLICATION_SCOPE,
   MessageContext,
   subscribe,
   unsubscribe
-} from "lightning/messageService"
+} from "lightning/messageService";
 
 // Declare the const LONGITUDE_FIELD for the boat's Longitude__s
 // Declare the const LATITUDE_FIELD for the boat's Latitude
 // Declare the const BOAT_FIELDS as a list of [LONGITUDE_FIELD, LATITUDE_FIELD];
-const LONGITUDE_FIELD = 'Boat__c.Geolocation__Longitude__s';
-const LATITUDE_FIELD = 'Boat__c.Geolocation__Latitude__s';
+const LONGITUDE_FIELD = "Boat__c.Geolocation__Longitude__s";
+const LATITUDE_FIELD = "Boat__c.Geolocation__Latitude__s";
 const BOAT_FIELDS = [LONGITUDE_FIELD, LATITUDE_FIELD];
 
 export default class BoatMap extends LightningElement {
-  
   // private
   subscription = null;
-  
+
   //public
   error = undefined;
   @api boatId;
@@ -31,19 +30,19 @@ export default class BoatMap extends LightningElement {
   @api get recordId() {
     return this.boatId;
   }
-  
+
   set recordId(value) {
-    this.setAttribute('boatId', value);
+    this.setAttribute("boatId", value);
     this.boatId = value;
   }
-  
+
   // Initialize messageContext for Message Service
   @wire(MessageContext)
   messageContext;
-  
+
   // Getting record's location to construct map markers using recordId
   // Wire the getRecord method using ('$boatId')
-  @wire(getRecord, { recordId: '$boatId', fields: BOAT_FIELDS})
+  @wire(getRecord, { recordId: "$boatId", fields: BOAT_FIELDS })
   wiredRecord({ error, data }) {
     // Error handling
     if (data) {
@@ -57,15 +56,16 @@ export default class BoatMap extends LightningElement {
       this.mapMarkers = [];
     }
   }
-
   // Creates the map markers array with the current boat's location for the map.
-  updateMap(Longitude, Latitude) {
-    this.mapMarkers[{
-      loaction: {
-        latitude: Latitude, 
-        longitude: Longitude
-      },
-    }];
+  updateMap(longitude, latitude) {
+    this.mapMarkers = [
+      {
+        location: {
+          Latitude: latitude,
+          Longitude: longitude
+        }
+      }
+    ];
   }
 
   // Runs when component is connected, subscribes to BoatMC
@@ -84,7 +84,7 @@ export default class BoatMap extends LightningElement {
       this.subscription = subscribe(
         this.messageContext,
         BOATMC,
-        (message) => this.boatId = message.recordId,
+        (message) => this.recordId = message.recordId,
         { scope: APPLICATION_SCOPE }
       );
     }
@@ -104,4 +104,3 @@ export default class BoatMap extends LightningElement {
     return this.mapMarkers.length > 0;
   }
 }
-

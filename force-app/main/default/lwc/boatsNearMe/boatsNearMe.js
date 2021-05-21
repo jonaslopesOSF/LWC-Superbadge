@@ -78,6 +78,7 @@ export default class BoatsNearMe extends LightningElement {
     } else if (error) {
       const evt = new ShowToastEvent({
         title: ERROR_TITLE,
+        error: error.message,
         variant: ERROR_VARIANT
       });
       this.dispatchEvent(evt);
