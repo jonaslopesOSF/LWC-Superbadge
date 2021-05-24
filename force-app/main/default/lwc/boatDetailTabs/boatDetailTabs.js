@@ -87,7 +87,6 @@ export default class BoatDetailTabs extends NavigationMixin(LightningElement) {
       type: "standard__recordPage",
       attributes: {
         recordId: this.boatId,
-        objectApiName: "Boat__c",
         actionName: "view"
       }
     });
