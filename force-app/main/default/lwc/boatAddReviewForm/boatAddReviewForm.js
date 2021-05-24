@@ -50,6 +50,12 @@ export default class BoatAddReviewForm extends LightningElement {
   // Dispatches event when a review is created
   handleSuccess() {
     // TODO: dispatch the custom event and show the success message
+    const createReviewEvent = new CustomEvent("createreview", {
+      detail: {}
+    });
+
+    this.dispatchEvent(createReviewEvent);
+    
     const toastEvent = new ShowToastEvent({
       title: SUCCESS_TITLE,
       message: '',
@@ -57,10 +63,6 @@ export default class BoatAddReviewForm extends LightningElement {
     });
 
     this.dispatchEvent(toastEvent);
-
-    this.dispatchEvent(new CustomEvent("createreview"));
-
-    this.dispatchEvent(reviewCreatedEvent);
     this.handleReset();
   }
   

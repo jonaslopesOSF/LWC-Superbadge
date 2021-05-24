@@ -3,7 +3,6 @@
   <!-- <lightning-record-edit-form> using boatReviewObject -->
   <lightning-record-edit-form
     object-api-name={boatReviewObject} 
-    record-id={recordId}
     onsuccess={handleSuccess}
     onsubmit={handleSubmit}
   >
@@ -13,11 +12,11 @@
       <lightning-layout-item size="8" padding="horizontal-small">
         <div class="slds-form-element">
             <!-- review subject field code using nameField -->
+            <label class="slds-form-element__label" for="record-name">{labelSubject}</label>
             <lightning-input-field 
               field-name={nameField} 
               variant="label-hidden" 
             >
-              <label class="slds-form-element__label" for="record-name">{labelSubject}</label>
             </lightning-input-field>
         </div>
       </lightning-layout-item>
