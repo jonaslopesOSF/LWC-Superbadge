@@ -71,9 +71,7 @@ export default class BoatsNearMe extends LightningElement {
   })
   wiredBoatsJSON({ error, data }) {
     if (data) {
-      console.log('data', data);
       const boatData = JSON.parse(data);
-      console.log('boatData', data);
       this.createMapMarkers(boatData);
     } else if (error) {
       const evt = new ShowToastEvent({
@@ -94,7 +92,6 @@ export default class BoatsNearMe extends LightningElement {
     let newMarkers = this.mappingBoatData(boatData);
     newMarkers.unshift(this.addingFirstElementToMapMarkers());
     this.mapMarkers = newMarkers;
-    console.log('mapMarkers', this.mapMarkers);
   }
 
   mappingBoatData(boatData) {

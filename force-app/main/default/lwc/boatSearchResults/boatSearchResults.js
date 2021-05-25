@@ -84,7 +84,6 @@ export default class BoatSearchResults extends LightningElement {
     // Update the records via Apex
     await updateBoatList({ data: updatedFields })
       .then((result) => {
-        console.log(JSON.stringify("Apex update result: " + result));
         this.showToastMessage(SUCCESS_TITLE, MESSAGE_SHIP_IT, SUCCESS_VARIANT);
         // Refresh LDS cache and wires
         getRecordNotifyChange(notifyChangeIds);
