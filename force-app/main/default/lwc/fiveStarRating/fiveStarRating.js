@@ -1,4 +1,4 @@
-import { LightningElement, api, wire } from "lwc";
+import { LightningElement, api } from "lwc";
 import { loadStyle, loadScript } from "lightning/platformResourceLoader";
 import { ShowToastEvent } from "lightning/platformShowToastEvent"; 
 import fivestar from "@salesforce/resourceUrl/fivestar";
