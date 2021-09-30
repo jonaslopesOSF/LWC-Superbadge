@@ -10,6 +10,16 @@
         <name>ApexClass</name>
     </types>
     <types>
+        <members>Boat__c</members>
+        <members>Comment__c</members>
+        <members>Rating__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>BoatReview__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
         <members>SimilarBoatsComponent</members>
         <name>ApexComponent</name>
     </types>
@@ -35,7 +45,11 @@
         <name>StaticResource</name>
     </types>
     <types>
-        <members>*</members>
+        <members>Add_Review</members>
+        <members>Details</members>
+        <members>Full_Details</members>
+        <members>Please_select_a_boat</members>
+        <members>Reviews</members>
         <name>CustomLabels</name>
     </types>
     <version>49.0</version>
