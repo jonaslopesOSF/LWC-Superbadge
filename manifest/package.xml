@@ -30,5 +30,9 @@
         <members>BoatMessageChannel</members>
         <name>LightningMessageChannel</name>
     </types>
+    <types>
+        <members>fivestar</members>
+        <name>StaticResource</name>
+    </types>
     <version>49.0</version>
 </Package>
