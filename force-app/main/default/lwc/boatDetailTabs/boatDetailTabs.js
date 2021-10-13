@@ -1,4 +1,4 @@
-import { LightningElement, wire, api } from "lwc";
+import { LightningElement, wire } from "lwc";
 import { NavigationMixin } from "lightning/navigation";
 import { getRecord, getFieldValue } from "lightning/uiRecordApi";
 
@@ -46,7 +46,7 @@ export default class BoatDetailTabs extends NavigationMixin(LightningElement) {
   // Decide when to show or hide the icon
   // returns 'utility:anchor' or null
   get detailsTabIconName() {
-    this.wiredRecord?.data ? "utility:anchor" : null;
+    return this.wiredRecord?.data ? "utility:anchor" : null;
   }
 
   // Utilize getFieldValue to extract the boat name from the record wire
